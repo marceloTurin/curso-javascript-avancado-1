@@ -9,23 +9,25 @@ class Negociacao {
 		this._valor = valor;
 	}
 
+	//get é um metodo de leitura
+
 	//Metodo que calcula o volume
-	getVolume(){
+	get volume(){
 		return this._quantidade * this._valor;
 	}
 
 	//Retorna a data
-	getData(){
+	get data(){
 		return this._data;
 	}
 
 	//Retorna a quantidade
-	getQuantidade(){
+	get quantidade(){
 		return this._quantidade;
 	}
 
 	//Retorna o valor
-	getValor(){
+	get valor(){
 		return this._valor;
 	}
 }
