@@ -7,6 +7,8 @@ class Negociacao {
 		this._data = data;
 		this._quantidade = quantidade;
 		this._valor = valor;
+		//Congela a variavel instanciada para que não seja alterada os valores dos atributos
+		Object.freeze(this);
 	}
 
 	//get é um metodo de leitura
