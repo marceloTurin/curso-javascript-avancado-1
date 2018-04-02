@@ -64,11 +64,10 @@
     <script type="text/javascript">
         var n1 = new Negociacao(new Date(),5,700);
         
-        //Retorna os valores do get sem a necessidade de abrir ()
-        console.log(n1.quantidade);
         console.log(n1.data);
-        console.log(n1.valor);
-        console.log(n1.volume);
+
+        n1.data.setDate(11); //Muda a data 
+        console.log(n1.data);
 
        
     </script>

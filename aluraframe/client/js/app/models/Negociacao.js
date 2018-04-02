@@ -4,7 +4,7 @@
 class Negociacao {
 	//Criação do construtor onde colocamos os atributos da classe
 	constructor(data,quantidade,valor){
-		this._data = data;
+		this._data = new Date(data.getTime());
 		this._quantidade = quantidade;
 		this._valor = valor;
 		//Congela a variavel instanciada para que não seja alterada os valores dos atributos
@@ -20,7 +20,8 @@ class Negociacao {
 
 	//Retorna a data
 	get data(){
-		return this._data;
+		//Cria um novo objeto de data evitando que alguem altere a data original
+		return new Date(this._data.getTime());  //getTime retorna um numero long com a representação da data
 	}
 
 	//Retorna a quantidade
