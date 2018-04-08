@@ -10,33 +10,35 @@ class NegociacaoController {
 		this._inputData = $("#data");
 		this._inputQuantidade = $("#quantidade");
 		this._inputValor = $("#valor");
+		this._listaNegociacoes = new ListaNegociacoes();
 	}
 
 	adiciona(event){
 		event.preventDefault();
 		
+		//Adiciona as negociacoes na Lista de Negociações
+		this._listaNegociacoes.adicionaLista(this._criaNegociacao());
 
-		//let helper = new DateHelper(); //Intancia a classe de DataHelper na variavel helper
+		//Limpa o formulário
+		this._limpaFormulario();
+		console.log(this._listaNegociacoes.negociacoes);
+	}
 
-		// Chama o metodo estatico textoParaData sem a necessidade de instancia o new da classe 
-		let data = DateHelper.textoParaData(this._inputData.value); 
-
-
-		
-
-		let negociacao = new Negociacao(
-			data,
+	//Pega as informações do formulario e cria uma negociação
+	_criaNegociacao(){
+		return new Negociacao(
+			DateHelper.textoParaData(this._inputData.value),
 			this._inputQuantidade.value,
 			this._inputValor.value
 			);
 
-		console.log(negociacao);
+	}
 
-		//Exibe o texto em formato dia/mês/ano passando o date da classe negociacao
-		console.log(DateHelper.dataParaTexto(negociacao.data));
-
-		
-		
-	
+	//Limpa o formulário depois de inserir
+	_limpaFormulario(){
+		this._inputData.value = '';
+		this._inputValor.value = 0.0;
+		this._inputQuantidade.value = 1;
+		this._inputData.focus();
 	}
 }

@@ -8,7 +8,7 @@ class DateHelper{
 	//Metodo estatico
 	static dataParaTexto(data){
 
-		//Exibe a data no formato dia/mês/ano
+		//Exibe a data no formato dia/mês/ano usando template string
 		return `${data.getDate()}/${data.getMonth()+1}/${data.getFullYear()}`;
 
 	}
