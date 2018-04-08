@@ -1,14 +1,21 @@
 class DateHelper{
 
-	dataParaTexto(data){
+
+	constructor(){
+		throw new Error('Essa classe não pode ser instanciada');
+	}
+
+	//Metodo estatico
+	static dataParaTexto(data){
 
 		//Exibe a data no formato dia/mês/ano
 		return data.getDate() 
-			+ '/' + (.data.getMonth() + 1)
-			+ '/' + .data.getFullYear();
+			+ '/' + (data.getMonth() + 1)
+			+ '/' + data.getFullYear();
 	}
 
-	textoParaData(texto){
+	//Metodo estatico
+	static textoParaData(texto){
 
 		//Tranforma a String em um array dividindo os valores com o split quando o parametro for - 
 		//A função map percorre cada item do array permetindo você fazer algo com o item

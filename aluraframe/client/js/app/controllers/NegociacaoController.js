@@ -16,8 +16,11 @@ class NegociacaoController {
 		event.preventDefault();
 		
 
-		let helper = new DateHelper(); //Intancia a classe de DataHelper na variavel helper
-		let data = helper.textoParaData(this._inputData.value); // Chama o metodo textoParaData
+		//let helper = new DateHelper(); //Intancia a classe de DataHelper na variavel helper
+
+		// Chama o metodo estatico textoParaData sem a necessidade de instancia o new da classe 
+		let data = DateHelper.textoParaData(this._inputData.value); 
+
 
 		
 
@@ -30,7 +33,7 @@ class NegociacaoController {
 		console.log(negociacao);
 
 		//Exibe o texto em formato dia/mês/ano passando o date da classe negociacao
-		console.log(helper.dataParaTexto(negociacao.data));
+		console.log(DateHelper.dataParaTexto(negociacao.data));
 
 		
 		
