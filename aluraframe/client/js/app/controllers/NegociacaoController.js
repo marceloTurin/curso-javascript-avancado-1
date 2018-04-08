@@ -1,17 +1,21 @@
 class NegociacaoController {
 
-	adiciona(event){
-		event.preventDefault();
-		
+
+	//Criação do contrutor onde é criado o atributo de instancia com o this
+	constructor(){
 		//Criação da variavel $ que liga o querySelector ao document
 		let $ = document.querySelector.bind(document);
 
-		let inputData = $("#data");
-		let inputQuantidade = $("#quantidade");
-		let inputValor = $("#valor");
+		//Selecão dos input do formulário
+		this.inputData = $("#data");
+		this.inputQuantidade = $("#quantidade");
+		this.inputValor = $("#valor");
+	}
 
-		console.log(inputData.value);
-		console.log(inputValor.value);
-		console.log(inputQuantidade.value);
+	adiciona(event){
+		event.preventDefault();
+		console.log(this.inputData.value);
+		console.log(this.inputValor.value);
+		console.log(this.inputQuantidade.value);
 	}
 }
