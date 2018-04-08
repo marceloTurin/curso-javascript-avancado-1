@@ -39,7 +39,33 @@ class NegociacaoController {
 			);
 
 		console.log(negociacao);
-		
 
+		//Aula 3 Exercicio exemplo não funcional
+		let numeros = [3,2,11,20,8,7];
+		let novosNumeros = [];
+
+		numeros.forEach(item => {
+			if (item %2 != 0) {
+				novosNumeros.push(item *2);
+			}
+			else{
+				novosNumeros.push(item);
+			}
+		});
+
+		//Aula 3 Exercicio exemplos funcionais
+		let novosNumeros = numeros.map(item =>  item % 2 ? item * 2 : item);
+		console.log(novosNumeros);
+
+		let novosNumeros = numeros.map((item)=> (item%2 +1 ) * item);
+		console.log(novosNumeros);
+
+
+		console.log(novosNumeros);
+		
+		//Aula 3 Exercicios arrow
+		var aprovados = avaliacoes
+		.filter(prova => prova.nota >=7)
+		.map(prova => prova.aluno.nome);
 	}
 }
