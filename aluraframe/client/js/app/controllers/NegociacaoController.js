@@ -19,19 +19,20 @@ class NegociacaoController {
 		console.log(this._inputData.value);
 
 		//Tranforma a String em um array dividindo os valores com o split quando o parametro for - 
-		let data = new Date(this._inputData.value.split('-'));
+		let data = new Date(...
+			this._inputData.value
+			.split('-')
+			.map(function(item,indice){ //A função map percorre cada item do array permetindo você fazer algo com o item
+				
+				return item - indice % 2;
+			})
+		);
 
 		//O mesmo exemplo usando replace com expressão regular trocando o - pela virgula
-		let data = new Date(this._inputData.value.replace(/-/g, ','));
+		//let data = new Date(this._inputData.value.replace(/-/g, ','));
 
 		console.log(data);
 
 
-
-		let negociacao = new Negociacao{
-			this._inputData.value,
-			this._inputQuantidade.value,
-			this._inputData.value
-		}
 	}
 }
