@@ -18,6 +18,7 @@ class NegociacaoController {
 		
 		//Adiciona as negociacoes na Lista de Negociações
 		this._listaNegociacoes.adicionaLista(this._criaNegociacao());
+		
 
 		//Limpa o formulário
 		this._limpaFormulario();
