@@ -18,7 +18,7 @@ class DateHelper{
 
 		
 		//Expressão regular para verificar se a data esta no formato correto
-		 if(!/\d{4}-\d{2}-\d{2}/.test(texto)) 
+		 if(!/^\d{4}-\d{2}-\d{2}$/.test(texto)) 
 		 	throw new Error('Deve estar no formato aaaa-mm-dd');
 
 

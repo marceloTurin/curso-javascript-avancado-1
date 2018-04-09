@@ -11,6 +11,8 @@ class NegociacaoController {
 		this._inputQuantidade = $("#quantidade");
 		this._inputValor = $("#valor");
 		this._listaNegociacoes = new ListaNegociacoes();
+		this._negociacoesView = new NegociacoesView($("#negociacoesView"));
+		this._negociacoesView.update();
 	}
 
 	adiciona(event){
@@ -18,7 +20,7 @@ class NegociacaoController {
 		
 		//Adiciona as negociacoes na Lista de Negociações
 		this._listaNegociacoes.adicionaLista(this._criaNegociacao());
-		
+
 
 		//Limpa o formulário
 		this._limpaFormulario();
