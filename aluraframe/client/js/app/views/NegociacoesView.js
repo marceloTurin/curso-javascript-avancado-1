@@ -4,7 +4,9 @@ class NegociacoesView{
 		this._elemento = elemento;
 	}
 
-	_template(){
+	// O model é a lista de negociações
+
+	_template(model){
 		return `
 		<table class="table table-hover table-bordered">
 	        <thead>
@@ -17,6 +19,17 @@ class NegociacoesView{
 	        </thead>
 	        
 	        <tbody>
+	        	${model.negociacoes.map((n) =>{
+	        		console.log(n);
+	        		return `
+	        			<tr>
+	        				<td> ${DateHelper.dataParaTexto(n.data)} </td>
+	        				<td> ${n.quantidade} </td>
+	        				<td> ${n.valor} </td>
+	        				<td> ${n.volume}</td>
+	        			</tr>
+	        		`
+	        	}).join('')}
 	        </tbody>
 	        
 	        <tfoot>
@@ -26,8 +39,8 @@ class NegociacoesView{
 	}
 
 
-	update(){
-		this._elemento.innerHTML = this._template();
+	update(model){
+		this._elemento.innerHTML = this._template(model);
 	}
 }
 

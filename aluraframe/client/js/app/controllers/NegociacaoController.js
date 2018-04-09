@@ -11,23 +11,15 @@ class NegociacaoController {
 		this._inputQuantidade = $("#quantidade");
 		this._inputValor = $("#valor");
 		this._listaNegociacoes = new ListaNegociacoes();
+
+		//Seleciona a div onde será criado o model da view
 		this._negociacoesView = new NegociacoesView($("#negociacoesView"));
-		this._negociacoesView.update();
+
+		//Atualiza a div conforme a quantidade de negociações na lista
+		this._negociacoesView.update(this._listaNegociacoes);
 	}
 
-	adiciona(event){
-		event.preventDefault();
-		
-		//Adiciona as negociacoes na Lista de Negociações
-		this._listaNegociacoes.adicionaLista(this._criaNegociacao());
-
-
-		//Limpa o formulário
-		this._limpaFormulario();
-		console.log(this._listaNegociacoes.negociacoes);
-	}
-
-	//Pega as informações do formulario e cria uma negociação
+	//Pega as informações do formulario e cria uma negociação da classe Negociacao
 	_criaNegociacao(){
 		return new Negociacao(
 			DateHelper.textoParaData(this._inputData.value),
@@ -37,6 +29,7 @@ class NegociacaoController {
 
 	}
 
+
 	//Limpa o formulário depois de inserir
 	_limpaFormulario(){
 		this._inputData.value = '';
@@ -44,4 +37,22 @@ class NegociacaoController {
 		this._inputQuantidade.value = 1;
 		this._inputData.focus();
 	}
+
+	adiciona(event){
+		event.preventDefault();
+		
+		//Adiciona as negociacoes na Lista de Negociações da Classe ListaNegociacoes
+		this._listaNegociacoes.adicionaLista(this._criaNegociacao());
+
+		//
+		this._negociacoesView.update(this._listaNegociacoes);
+
+
+		//Limpa o formulário
+		this._limpaFormulario();
+		//console.log(this._listaNegociacoes.negociacoes);
+	}
+
+	
+
 }
