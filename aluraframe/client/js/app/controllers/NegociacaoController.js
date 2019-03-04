@@ -17,6 +17,10 @@ class NegociacaoController {
 
 		//Atualiza a div conforme a quantidade de negociações na lista
 		this._negociacoesView.update(this._listaNegociacoes);
+
+		this._mensagem = new Mensagem();
+		this._mensagemView = new MensagemView($('#mensagemView'))
+		this._mensagemView.update(this._mensagem);
 	}
 
 	//Pega as informações do formulario e cria uma negociação da classe Negociacao
@@ -44,9 +48,11 @@ class NegociacaoController {
 		//Adiciona as negociacoes na Lista de Negociações da Classe ListaNegociacoes
 		this._listaNegociacoes.adicionaLista(this._criaNegociacao());
 
-		//
+		//Atualiza a View de Negociações
 		this._negociacoesView.update(this._listaNegociacoes);
 
+		this._mensagem.texto = 'Negociação adicionada com sucesso';
+		this._mensagemView.update(this._mensagem);
 
 		//Limpa o formulário
 		this._limpaFormulario();
