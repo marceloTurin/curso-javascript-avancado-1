@@ -1,14 +1,13 @@
-class MensagemView {
+class MensagemView extends View {
+
     
     constructor(elemento){
-        this._elemento = elemento;
+       //O comando super manda o atributo alemento para a classe pai 
+       super(elemento);
     }
-
+    
     _template(model){
         return model.texto ? `<p class="alert alert-info"> ${model.texto}</p>` : '<p></p>';
     }
 
-    update(model){
-        this._elemento.innerHTML = this._template(model);
-    }
 }

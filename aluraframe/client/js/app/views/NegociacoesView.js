@@ -1,11 +1,13 @@
-class NegociacoesView{
+class NegociacoesView extends View {
 
+	
 	constructor(elemento){
-		this._elemento = elemento;
+
+		//O comando super manda o atributo alemento para a classe pai
+		super(elemento);
 	}
 
 	// O model é a lista de negociações
-
 	_template(model){
 		return `
 		<table class="table table-hover table-bordered">
@@ -40,9 +42,5 @@ class NegociacoesView{
 	    `;
 	}
 
-
-	update(model){
-		this._elemento.innerHTML = this._template(model);
-	}
 }
 
