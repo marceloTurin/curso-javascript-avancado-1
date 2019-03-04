@@ -8,7 +8,7 @@ class NegociacoesView extends View {
 	}
 
 	// O model é a lista de negociações
-	_template(model){
+	template(model){
 		return `
 		<table class="table table-hover table-bordered">
 	        <thead>
